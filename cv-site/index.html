@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CV - Benjamin Lemoine</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile-photo">
+        <img id="Photo" src="PhotoCV.jpg" alt="Photo de profil">
+      </div>
+      <h1 class="name">Benjamin<br>Lemoine</h1>
+      <p class="subtitle">Etudiant en 1ère année à Ynov Campus</p>
+
+      <nav class="menu">
+        <button data-target="home" class="active">Accueil</button>
+        <button data-target="contact">Contact</button>
+        <button data-target="skills">Compétences</button>
+        <button data-target="education">Formations</button>
+        <button data-target="experience">Expériences</button>
+        <button data-target="projects">Projets</button>
+        <button data-target="hobbies">Loisirs</button>
+
+        <button data-href="languages.html" class="open-page">Langues</button>
+      </nav>
+
+      <div class="languages">
+        <h3>Langues</h3>
+        <ul>
+          <li>Français (natif)</li>
+          <li>Anglais B1</li>
+          <li>Allemand A2</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="home" class="page active">
+        <h2>Présentation</h2>
+        <p>Bonjour, je m'appelle Benjamin. Je suis étudiant en informatique à Ynov Campus. Bienvenue sur mon CV en ligne.</p>
+      </section>
+
+      <section id="contact" class="page">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email : benjamin.lemoine@ynov.com</li>
+          <li>Téléphone : 06 29 57 81 44</li>
+          <li>Adresse : Résidence Beaulieu 25 Rue du Bois Joli, 44000 Nantes</li>
+          <li>LinkedIn : <a href="#">linkedin.com/in/benjamin-lemoine-ynov</a></li>
+        </ul>
+      </section>
+
+      <section id="skills" class="page">
+        <h2>Compétences</h2>
+        <ul>
+          <li>Communication</li>
+          <li>Polyvalence</li>
+          <li>Autonomie</li>
+          <li>Logique</li>
+          <li>Sens du contact</li>
+          <li>Efficacité</li>
+        </ul>
+      </section>
+
+      <section id="education" class="page">
+        <h2>Formations</h2>
+        <h3>Étudiant à Ynov Campus</h3>
+        <p>Programme Grande École (09/2025 - 06/2030)</p>
+        <h3>Autres formations</h3>
+        <p>Ajoute ici les formations précédentes.</p>
+      </section>
+
+      <section id="experience" class="page">
+        <h2>Expériences professionnelles</h2>
+        <article>
+          <h4>Stage en entreprise - Vialis (05/2021)</h4>
+          <p>Découverte du métier de Comptable en Entreprise.</p>
+        </article>
+        <article>
+          <h4>Emploi à la mairie - Mairie de Saint-Lunaire (07/2023)</h4>
+          <p>Nettoyage de la ville durant l'été.</p>
+        </article>
+        <article>
+          <h4>Emploi en entreprise - ARS-TELECOM (07/2024 - 09/2024)</h4>
+          <p>Installation de caméras et capteurs, câblage et programmation.</p>
+        </article>
+      </section>
+
+      <section id="projects" class="page">
+        <h2>Projets</h2>
+        <p>Liste de projets. Clique sur un projet pour ouvrir sa page dédiée (à créer).</p>
+        <ul>
+          <li><a href="project1.html">Projet 1 - Mini jeu en C</a></li>
+          <li><a href="project2.html">Projet 2 - Outil utilitaire</a></li>
+        </ul>
+      </section>
+
+      <section id="hobbies" class="page">
+        <h2>Loisirs</h2>
+        <p>Natation, musculation, randonnée, guitare, cuisine, surf.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
