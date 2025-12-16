@@ -8,9 +8,9 @@
 [![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 [![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Status](https://img.shields.io/badge/Status-✅%20Live-brightgreen?style=flat)](http://localhost:8000)
+[![Status](https://img.shields.io/badge/Status-✅%20Live-brightgreen?style=flat)](https://benjamin-lemoine.onrender.com)
 
-**[🚀 Démarrer](#-démarrage-rapide)** • **[✨ Fonctionnalités](#-fonctionnalités)** • **[📂 Structure](#-structure-du-projet)** • **[🛠️ Tech](#-technologies)**
+**[🚀 Démarrer](#-démarrage-rapide)** • **[✨ Fonctionnalités](#-fonctionnalités)** • **[📂 Structure](#-structure-du-projet)**
 
 </div>
 
@@ -32,31 +32,22 @@
 
 ## 🚀 Démarrage Rapide
 
-### Prérequis
-```
-✅ Python 3.x
-✅ Un navigateur moderne
-```
+### Option A — En ligne (recommandé)
 
-### Installation (30 secondes ⏱️)
+Ouvrez simplement ce lien dans votre navigateur :
+
+`https://benjamin-lemoine.onrender.com`
+
+### Option B — En local
+
+Prérequis : `Python 3.x` et un navigateur moderne.
 
 ```bash
-# 1️⃣ Aller au dossier
-cd /home/benjamin/ynov/Yboost/Benjamin/cv-site
-
-# 2️⃣ Lancer le serveur
 python3 -m http.server 8000 --bind 127.0.0.1
-
-# 3️⃣ Ouvrir le navigateur
-👉 http://localhost:8000 ✨
+# Ouvrir : http://127.0.0.1:8000
 ```
 
-**Ou le script rapide :**
-```bash
-chmod +x serve.sh && ./serve.sh
-```
-
-✅ **C'est tout ! Votre site est en ligne.**
+✅ Votre site est accessible en ligne et en local.
 
 ---
 
@@ -67,7 +58,7 @@ cv-site/
 │
 ├── 📄 index.html              # Redirection → page d'accueil
 ├── 🖼️  PhotoCV.jpg             # Votre photo de profil
-├── 🚀 serve.sh                 # Script de lancement local
+├── 🚀 (optionnel) script local # Lancement en local via python http.server
 │
 ├── 📁 css/
 │   └── 🎨 styles.css           # Dégradés, animations, responsive
@@ -76,7 +67,7 @@ cv-site/
 │   └── ⚙️  app.js              # Navigation + animations
 │
 └── 📁 pages/
-    ├── 🏠 index.html           # Accueil (Contact • Compétences • Langues)
+    ├── 🏠 menu.html           # Accueil (Contact • Compétences • Langues)
     ├── 💼 emplois.html         # Formations & Expériences
     ├── 🎯 projets.html         # Projets réalisés
     └── 🎮 loisirs.html         # Loisirs & Intérêts
@@ -259,44 +250,6 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 ---
 
-## 🚀 Master Prompt (Pour l'IA)
-
-```
-Je souhaite créer un CV professionnel sous forme de site web avec une approche 
-web moderne. J'ai besoin du niveau d'expertise d'un développeur web senior (10+ ans).
-Explique clairement les concepts complexes.
-
-## 📋 Spécifications
-
-### Structure
-- Multi-pages : Accueil, Emplois, Projets, Loisirs
-- Navigation sticky en haut
-- Contenu centré et lisible
-- Header avec photo de profil
-
-### Design
-- Dégradé : Bleu foncé (#0a2463) → Bleu moyen (#1e3a8a) → Noir
-- Fond blanc subtle
-- Texte blanc sur header dark, noir sur fond clair
-- Responsive (mobile, tablette, desktop)
-
-### Animations
-- Cartes apparaissent progressivement au scroll
-- Transitions fluides
-- Effets hover subtils
-
-### Fichiers
-cv-site/
-├── index.html (redirection)
-├── serve.sh (lancement local)
-├── PhotoCV.jpg
-├── css/styles.css
-├── js/app.js
-└── pages/ (index, emplois, projets, loisirs)
-```
-
----
-
 <div align="center">
 
 ## 📚 Ressources
@@ -330,7 +283,7 @@ Ces prompts permettent de recréer le site complet en donnant des instructions c
 ### 📌 PROMPT 1 - OBJECTIF & ARCHITECTURE
 
 ```
-Tu es un développeur web senior (10 ans d'expérience). Génère un site web CV complet, moderne, responsive, pour Benjamin Lemoine (Étudiant Ynov Campus). Je te donnerais un CV reprend les informations de celle-ci. Il faut que ce soit un site complet, élégant, performant, responsive, prêt à lancer via ./serve.sh sur http://localhost:8000, compréhensible grâce aux commentaires, sans lignes de commande exposées dans le prompt (uniquement des instructions textuelles). Avec un code propre, commenté pour expliquer les concepts avancés (CSS, JS). 
+Tu es un développeur web senior (10 ans d'expérience). Génère un site web CV complet, moderne, responsive, pour Benjamin Lemoine (Étudiant Ynov Campus). Je te donnerais un CV reprend les informations de celle-ci. Il faut que ce soit un site complet, élégant, performant, responsive, prêt à lancer via ./serve.sh sur http://0.0.0.0:8000, compréhensible grâce aux commentaires, sans lignes de commande exposées dans le prompt (uniquement des instructions textuelles). Avec un code propre, commenté pour expliquer les concepts avancés (CSS, JS). 
 
 Arborescence exacte à créer :
 cv-site/ (racine)
@@ -340,7 +293,7 @@ cv-site/ (racine)
 - PhotoCV.jpg (je te la donne)
 - styles.css
 - js/app.js
-- pages/index.html, pages/emplois.html, pages/projets.html, loisirs.html
+- pages/menu.html, pages/emplois.html, pages/projets.html, loisirs.html
 ```
 
 ---
@@ -386,6 +339,3 @@ Serve.sh : bash, tue port 8000 puis python3 -m http.server 8000 (c'est la comman
 ```
 
 ---
-
-> 💡 **Conseil** : Fournis ton CV à l'IA avec ces prompts pour qu'elle génère automatiquement tout le contenu personnalisé !
-
