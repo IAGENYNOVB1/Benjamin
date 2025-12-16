@@ -34,6 +34,16 @@ body {
   min-height: 100vh;
 }
 
+/* Media safe defaults */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
 /* ===================================
    HEADER AVEC NAVIGATION EN HAUT
    =================================== 
@@ -573,10 +583,7 @@ body {
    @media queries - permettent d'adapter le style selon la taille d'écran
    max-width: 768px signifie "si la largeur est inférieure ou égale à 768px"
 */ 
-   
-   @media queries - permettent d'adapter le style selon la taille d'écran
-   max-width: 768px signifie "si la largeur est inférieure ou égale à 768px"
-*/
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -621,14 +628,19 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
-  .projets-grid, .loisirs-grid {
+  .projets-grid, .loisirs-grid, .languages-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .emploi-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .projet-card, .loisir-card, .langue-card, .emploi-card {
+    padding: 20px;
   }
 }
 
@@ -657,5 +669,31 @@ body {
 
   .center-container {
     padding: 20px 15px;
+  }
+
+  .projet-icon, .loisir-icon, .langue-icon {
+    font-size: 2.5rem;
+  }
+
+  .projet-card h3, .loisir-card h3, .langue-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .emploi-logo-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .emploi-logo-circle img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .projets-grid, .loisirs-grid, .languages-grid {
+    gap: 16px;
+  }
+
+  .projet-card, .loisir-card, .langue-card, .emploi-card {
+    padding: 16px;
   }
 }
