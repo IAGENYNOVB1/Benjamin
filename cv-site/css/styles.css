@@ -1,0 +1,661 @@
+/* ===================================
+   VARIABLES CSS
+   =================================== */
+:root {
+  --blue-dark: #0a2463;
+  --blue-medium: #1e3a8a;
+  --blue-light: #3b82f6;
+  --black: #000000;
+  --white: #ffffff;
+  --gray-light: #f3f4f6;
+  --gray-medium: #6b7280;
+  --text-dark: #1f2937;
+}
+
+/* ===================================
+   RESET ET BASE
+   =================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  /* Dégradé de fond pour tout le site */
+  background: linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 50%, #ddd6fe 100%);
+  min-height: 100vh;
+}
+
+/* ===================================
+   HEADER AVEC NAVIGATION EN HAUT
+   =================================== 
+*/
+.top-header {
+  background: linear-gradient(to right, #0a2463 0%, #1e3a8a 50%, #000000 100%);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* ===================================
+   SECTION GAUCHE DU HEADER (Photo + Nom)
+   =================================== */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* 
+   :hover - pseudo-sélecteur activé au survol de la souris
+   transform: scale(1.08) agrandit l'image de 8% pour effet interactif
+*/
+.header-photo:hover {
+  transform: scale(1.08);
+}
+
+.header-name h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: var(--white);
+}
+
+.header-name p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+}
+
+/* ===================================
+   NAVIGATION HORIZONTALE
+   =================================== */
+.top-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-item {
+  color: var(--white);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+}
+
+/* 
+   Effet au survol : changement de couleur de fond et bordure
+  blur pour la profondeur du bouton
+*/
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  background: var(--blue-light);
+  border-color: var(--white);
+  font-weight: 600;
+}
+
+/* ===================================
+   CONTENU PRINCIPAL CENTRÉ
+   =================================== */
+.page-content {
+  padding: 40px 20px;
+  min-height: calc(100vh - 120px);
+}
+
+.center-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: var(--blue-dark);
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+/* 
+   ::after - pseudo-élément qui ajoute du contenu après l'élément
+   Ici on crée la ligne décorative
+*/
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--blue-light), var(--blue-dark));
+  border-radius: 2px;
+}
+
+/* ===================================
+   PAGE D'ACCUEIL - SECTIONS
+   =================================== */
+.section {
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+/* 
+   .visible - classe ajoutée dynamiquement par JavaScript
+   Quand l'utilisateur scroll, les sections deviennent visibles avec animation
+*/
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--blue-dark);
+  margin-bottom: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-icon {
+  font-size: 2rem;
+}
+
+/* ===================================
+   CONTACT INFO (Accueil)
+   =================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.contact-item {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(147, 51, 234, 0.08) 100%);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+}
+
+.contact-text strong {
+  display: block;
+  color: var(--blue-dark);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contact-text span {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+/* ===================================
+   COMPÉTENCES (Accueil)
+   =================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.skill-item {
+  background: linear-gradient(135deg, rgba(10, 36, 99, 0.05) 0%, rgba(30, 58, 138, 0.05) 100%);
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--blue-dark);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  border-color: var(--blue-light);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(147, 51, 234, 0.12) 100%);
+  transform: translateY(-3px);
+}
+
+/* ===================================
+   FORMATION ET LANGUES (Accueil)
+   =================================== */
+.formation-list, .langues-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.formation-list li, .langues-list li {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.08) 0%, transparent 100%);
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border-left: 4px solid var(--blue-light);
+  transition: all 0.3s ease;
+}
+
+.formation-list li:hover, .langues-list li:hover {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.05) 100%);
+  transform: translateX(5px);
+}
+
+.formation-list strong, .langues-list strong {
+  color: var(--blue-dark);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+/* ===================================
+   PAGE EMPLOIS - CARTES D'EXPÉRIENCE
+   =================================== */
+.emploi-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid var(--blue-light);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.emploi-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.emploi-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  transform: translateY(-5px);
+}
+
+.emploi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.emploi-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  border: 3px solid var(--blue-light);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  flex-shrink: 0;
+}
+
+.emploi-logo-circle img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.emploi-content h3 {
+  font-size: 1.6rem;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.emploi-content .periode {
+  font-size: 1rem;
+  color: var(--gray-medium);
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.emploi-content p {
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.emploi-tasks {
+  margin-top: 15px;
+}
+
+.emploi-tasks h4 {
+  color: var(--blue-dark);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.emploi-tasks ul {
+  list-style-position: inside;
+  color: var(--text-dark);
+  padding-left: 10px;
+}
+
+.emploi-tasks li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* ===================================
+   PAGE PROJETS - GRILLE DE PROJETS
+   =================================== */
+.projets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.projet-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 255, 0.95) 100%);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  border-top: 4px solid var(--blue-light);
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.projet-card.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.projet-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.projet-icon {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.projet-card h3 {
+  font-size: 1.4rem;
+  color: var(--blue-dark);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.projet-card p {
+  color: var(--text-dark);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ===================================
+   PAGE LOISIRS - GRILLE DE LOISIRS
+   =================================== */
+.loisirs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.loisir-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 243, 255, 0.95) 100%);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  border-top: 4px solid var(--blue-medium);
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.loisir-card.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.loisir-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.loisir-icon {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loisir-card h3 {
+  font-size: 1.4rem;
+  color: var(--blue-dark);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.loisir-card p {
+  color: var(--text-dark);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ===================================
+   PAGE LANGUES - GRILLE DE LANGUES
+   =================================== */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.langue-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 248, 255, 0.95) 100%);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  border-top: 4px solid var(--blue-light);
+  opacity: 0;
+  transform: scale(0.95);
+  text-align: center;
+}
+
+.langue-card.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.langue-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.langue-icon {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.langue-card h3 {
+  font-size: 1.6rem;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.langue-level {
+  font-size: 0.95rem;
+  color: var(--gray-medium);
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.langue-card p {
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+/* ===================================
+   RESPONSIVE - TABLETTE ET MOBILE
+   ===================================
+   
+   @media queries - permettent d'adapter le style selon la taille d'écran
+   max-width: 768px signifie "si la largeur est inférieure ou égale à 768px"
+*/ 
+   
+   @media queries - permettent d'adapter le style selon la taille d'écran
+   max-width: 768px signifie "si la largeur est inférieure ou égale à 768px"
+*/
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .header-left {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .top-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-item {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .center-container {
+    padding: 30px 20px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .projets-grid, .loisirs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .emploi-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-photo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header-name h1 {
+    font-size: 1.2rem;
+  }
+
+  .header-name p {
+    font-size: 0.85rem;
+  }
+
+  .nav-item {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  .center-container {
+    padding: 20px 15px;
+  }
+}
