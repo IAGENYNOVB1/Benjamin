@@ -24,6 +24,7 @@ body.dark-mode {
   --theme-bg-secondary: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(25, 35, 71, 0.85) 100%);
   --theme-text-primary: #e2e8f0;
   --theme-text-secondary: #cbd5e1;
+  --blue-dark: #ffffff;
   color-scheme: dark;
 }
 
