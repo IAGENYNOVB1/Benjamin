@@ -20,8 +20,8 @@
 body.dark-mode {
   --theme-bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1a2e 100%);
   --theme-bg-secondary: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(25, 35, 71, 0.85) 100%);
-  --theme-text-primary: #0a2463;
-  --theme-text-secondary: #0a2463;
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #e2e8f0;
   --blue-dark: #ffffff;
   color-scheme: dark;
 }
