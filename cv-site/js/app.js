@@ -1,4 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
+  /* ===================================
+     MODE SOMBRE/CLAIR
+     =================================== */
+  
+  // Restaurer la préférence sauvegardée
+  const savedTheme = localStorage.getItem('site-theme') || 'light';
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+  
+  // Créer le bouton toggle
+  const header = document.querySelector('.top-header');
+  const topNav = document.querySelector('.top-nav');
+  
+  if (header && topNav) {
+    const themeToggle = document.createElement('button');
+    themeToggle.className = 'theme-toggle';
+    themeToggle.setAttribute('type', 'button');
+    themeToggle.setAttribute('aria-label', 'Toggle dark/light mode');
+    themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    
+    // Ajouter le bouton après la nav
+    topNav.parentNode.insertBefore(themeToggle, topNav.nextSibling);
+    
+    // Gestionnaire du toggle
+    themeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      const isDarkMode = document.body.classList.contains('dark-mode');
+      localStorage.setItem('site-theme', isDarkMode ? 'dark' : 'light');
+      themeToggle.innerHTML = isDarkMode ? '☀️' : '🌙';
+      console.log(`🌓 Mode ${isDarkMode ? 'Sombre' : 'Clair'} activé`);
+    });
+  }
+
+  /* ===================================
+     NAVIGATION ACTIVE
+     =================================== */
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.nav-item');
   navLinks.forEach(link => {
