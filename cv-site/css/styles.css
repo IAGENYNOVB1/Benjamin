@@ -20,7 +20,7 @@
 body.dark-mode {
   --theme-bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1a2e 100%);
   --theme-bg-secondary: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(25, 35, 71, 0.85) 100%);
-  --theme-text-primary: #ffffff;
+  --theme-text-primary: #1e3a8a;
 /*  --theme-text-secondary: #e2e8f0;*/
   color-scheme: dark;
 }
@@ -31,7 +31,6 @@ body.dark-mode {
 * {
   margin: 0;
   padding: 0;
-  --theme-card-text: #1f2937;
   box-sizing: border-box;
 }
 
@@ -39,10 +38,8 @@ html {
   scroll-behavior: smooth;
 }
 
-  --theme-card-text: #0a2463;
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
   line-height: 1.6;
   color: var(--theme-text-primary);
   background: var(--theme-bg-primary);
