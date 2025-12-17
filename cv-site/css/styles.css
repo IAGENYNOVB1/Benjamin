@@ -307,7 +307,7 @@ html, body {
 }
 
 .contact-text span {
-  color: var(--text-dark);
+  color: var(--theme-text-primary);
   font-size: 0.95rem;
 }
 
@@ -439,7 +439,7 @@ html, body {
 }
 
 .emploi-content p {
-  color: var(--text-dark);
+  color: var(--theme-text-primary);
   line-height: 1.8;
   margin-bottom: 15px;
 }
@@ -456,7 +456,7 @@ html, body {
 
 .emploi-tasks ul {
   list-style-position: inside;
-  color: var(--text-dark);
+  color: var(--theme-text-primary);
   padding-left: 10px;
 }
 
@@ -511,7 +511,7 @@ html, body {
 }
 
 .projet-card p {
-  color: var(--text-dark);
+  color: var(--theme-text-primary);
   line-height: 1.7;
   text-align: justify;
 }
@@ -562,7 +562,7 @@ html, body {
 }
 
 .loisir-card p {
-  color: var(--text-dark);
+  color: var(--theme-text-primary);
   line-height: 1.7;
   text-align: justify;
 }
@@ -622,7 +622,7 @@ html, body {
 }
 
 .langue-card p {
-  color: var(--text-dark);
+  color: var(--theme-text-primary);
   line-height: 1.7;
 }
 
@@ -823,7 +823,7 @@ html, body {
   border-radius: 8px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.95rem;
-  color: var(--text-dark);
+  color: var(--theme-text-primary);
   background: var(--white);
   transition: all 0.3s ease;
 }

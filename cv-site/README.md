@@ -20,14 +20,17 @@
 
 | Icône | Fonctionnalité | Description |
 |-------|---|---|
-| 🗂️ | **Navigation Multi-Pages** | Accueil, Emplois, Projets, Loisirs, **Contact** |
+| 🗂️ | **Navigation Multi-Pages** | Accueil, Emplois, Projets, Loisirs, Contact |
 | ⚡ | **Animations Fluides** | Fade-in au scroll des cartes |
 | 📱 | **Responsive Design** | Parfait sur mobile, tablette, desktop |
 | 🎨 | **Dégradés Modernes** | Bleu → Noir → Blanc 🎨 |
+| 🌓 | **Mode Sombre/Clair** | Toggle theme avec persistance localStorage |
 | 🔗 | **Redirection Smart** | `/` → Page d'accueil automatiquement |
 | 📌 | **Header Sticky** | Navigation toujours visible 📌 |
 | ⚙️ | **Performance** | Chargement < 100ms ⚡ |
-| 📧 | **Formulaire Contact** | Validation en temps réel + envoi simulé |
+| 📧 | **Formulaire Contact** | Validation en temps réel + envoi réel email |
+| 🎠 | **Carrousel Projets** | Navigation fluide avec autoplay et indicateurs |
+| 💬 | **Contacts Alternatifs** | Email, Téléphone, LinkedIn |
 
 ---
 
@@ -353,49 +356,58 @@ Serve.sh : bash, tue port 8000 puis python3 -m http.server 8000 (c'est la comman
 
 ```
 Ajoute une nouvelle page Contact (pages/contact.html) avec :
-- Formulaire de contact avec champs : Nom, Email, Sujet, Message
-- Validation en temps réel avec messages d'erreur/succès
-- Bouton Envoyer avec feedback utilisateur
-- Section "Autres moyens de contact" : Email, Téléphone, LinkedIn, Localisation
-- Responsive design identique au reste du site
-- JavaScript pour valider les champs et simuler l'envoi
+Formulaire de contact avec champs : Nom, Email, Sujet, Message
+Fait une validation en temps réel avec messages d'erreur/succès
+Ajoute aussi un bouton Envoyer avec feedback utilisateur
+Une section "Autres moyens de contact" : Email, Téléphone, LinkedIn, Localisation
+Responsive design identique au reste du site
+Et du JS pour valider les champs et simuler l'envoi
 
 Ajoute le lien Contact à la navigation de toutes les pages.
 ```
 
 ---
 
-## 🏆 Atelier Fil Conducteur - Challenge CV Gamifié
+### 🌓 PROMPT 7 - MODE SOMBRE/CLAIR & CARROUSEL
 
-Ce projet suit la charte **"Atelier Fil Conducteur"** - un challenge progressif sur 3 jours pour créer un **Site CV Personnel Gamifié**.
+```
+Mode Sombre/Clair :
+- Ajoute un bouton toggle dans le header (☀️/🌙)
+- Utilise des variables CSS pour le thème (--theme-text-primary, --theme-bg-primary, etc.)
+- Sauvegarde la préférence dans localStorage
+- Assure la compatibilité sur toutes les pages
 
-### 📋 Objectifs Complétés
+Carrousel pour les Projets :
+- Remplace la grille des projets par un carrousel horizontal
+- Navigation : boutons Précédent/Suivant + indicateurs de position
+- Autoplay toutes les 6 secondes avec pause au survol
+- Support clavier : flèches gauche/droite
+- Design responsive pour tous les appareils
 
-✅ **Structure de base**
-- ✅ Page HTML personnelle avec sections (À propos, Compétences, Projets, Contact)
-- ✅ CSS moderne avec thème professionnel
-- ✅ Prompts documentés pour régénération complète
-
-✅ **Interactivité**
-- ✅ Formulaire de contact fonctionnel avec validation
-- ✅ Navigation fluide avec animations
-- ✅ IntersectionObserver pour animations au scroll
-
-🔄 **Fonctionnalités en développement**
-- 🔄 Carrousel de projets avec filtrage par catégorie
-- 🔄 Mode sombre/clair (toggle)
-- 🔄 Compteur de visites (localStorage)
-- 🔄 Gamification (badges, achievements)
-
-### 📋 Objectifs À Implémenter
-
-📌 **Optimisation et Personnalisation**
-- Amélioration design selon préférences
-- Compression des images et minification
-- Tests multi-navigateurs
-- Documentation complète (ce README)
-
-📌 **Contrainte du Défi**
-- ✅ **Documentation de tous les prompts utilisés** (voir section PROMPTS ci-dessus)
+Lisibilité en Mode Sombre :
+- Corrige les textes qui disparaissent en mode sombre
+- Utilise les variables de thème pour tous les éléments texte
+- Teste tous les éléments de formulaire, cartes et listes
+```
 
 ---
+
+### ⚙️ IMPLEMENTATION DETAILS - DARK MODE
+
+**localStorage key :** `'site-theme'` (values: 'light' | 'dark')
+
+**CSS Variables:**
+- Light mode: `--theme-text-primary: #1f2937` (gris foncé)
+- Dark mode: `--theme-text-primary: #e2e8f0` (gris clair)
+- Tous les textes utilisent `var(--theme-text-primary)`
+
+**Button Placement :** Dynamiquement ajouté dans le header après la navigation
+
+**Carousel Implementation:**
+- Autoplay: 6 secondes
+- Transition: CSS transform avec 0.5s ease
+- Keyboard navigation: `ArrowLeft` et `ArrowRight`
+- Pause on hover: Arrête autoplay au survol
+
+---
+

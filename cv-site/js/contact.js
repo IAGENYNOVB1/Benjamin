@@ -97,44 +97,59 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // Simulation d'envoi (en production, utiliser Formspree, SendGrid, etc.)
+    // Envoi du formulaire
     const submitBtn = contactForm.querySelector('.submit-btn');
     submitBtn.disabled = true;
     submitBtn.textContent = '📤 Envoi en cours...';
 
     try {
-      // Pause pour simulation
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Utiliser FormSubmit pour envoyer l'email
+      const formData = new FormData();
+      formData.append('name', inputs.name.value);
+      formData.append('email', inputs.email.value);
+      formData.append('subject', inputs.subject.value);
+      formData.append('message', inputs.message.value);
 
-      // Message de succès
-      feedback.className = 'form-feedback success';
-      feedback.innerHTML = `✅ <strong>Message envoyé avec succès !</strong><br>Je vous répondrai sous peu.`;
+      // Envoyer via FormSubmit (service gratuit)
+      const response = await fetch('https://formsubmit.co/benjamin@lemoine.cloud', {
+        method: 'POST',
+        body: formData
+      });
 
-      // Réinitialiser le formulaire
-      contactForm.reset();
-      
-      // Réinitialiser les messages d'erreur
-      for (let field in errors) {
-        errors[field].textContent = '';
-        inputs[field].classList.remove('error');
+      if (response.ok) {
+        // Message de succès
+        feedback.className = 'form-feedback success';
+        feedback.innerHTML = `✅ <strong>Message envoyé avec succès !</strong><br>Je vous répondrai sous peu.`;
+
+        // Réinitialiser le formulaire
+        contactForm.reset();
+        
+        // Réinitialiser les messages d'erreur
+        for (let field in errors) {
+          errors[field].textContent = '';
+          inputs[field].classList.remove('error');
+        }
+
+        // Remet le bouton
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Envoyer le message';
+
+        // Masquer le message après 5 secondes
+        setTimeout(() => {
+          feedback.textContent = '';
+          feedback.className = 'form-feedback';
+        }, 5000);
+
+        console.log('✅ Email envoyé avec succès à benjamin@lemoine.cloud');
+      } else {
+        throw new Error('Erreur serveur');
       }
-
-      // Remet le bouton
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Envoyer le message';
-
-      // Masquer le message après 5 secondes
-      setTimeout(() => {
-        feedback.textContent = '';
-        feedback.className = 'form-feedback';
-      }, 5000);
-
-      console.log('✅ Formulaire soumis avec succès');
     } catch (error) {
       feedback.className = 'form-feedback error';
       feedback.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
       submitBtn.disabled = false;
       submitBtn.textContent = 'Envoyer le message';
+      console.error('Erreur:', error);
     }
   });
 
