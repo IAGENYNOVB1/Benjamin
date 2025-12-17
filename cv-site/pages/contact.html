@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact - Benjamin Lemoine</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="top-header">
+    <div class="header-container">
+      <div class="header-left">
+        <img src="../PhotoCV.jpg" alt="Benjamin Lemoine" class="header-photo">
+        <div class="header-name">
+          <h1>Benjamin LEMOINE</h1>
+          <p>Étudiant Ynov Campus</p>
+        </div>
+      </div>
+      <nav class="top-nav">
+        <a href="/pages/menu.html" class="nav-item">Accueil</a>
+        <a href="/pages/emplois.html" class="nav-item">Emplois</a>
+        <a href="/pages/projets.html" class="nav-item">Projets</a>
+        <a href="/pages/loisirs.html" class="nav-item">Loisirs</a>
+        <a href="/pages/contact.html" class="nav-item active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="center-container">
+      <h2 class="page-title">Me Contacter</h2>
+
+      <section class="contact-section">
+        <h3 class="section-title">📬 Formulaire de Contact</h3>
+        <p style="text-align: center; margin-bottom: 30px; color: var(--text-dark);">
+          Envoyez-moi un message directement via ce formulaire. Je répondrai dans les 24h.
+        </p>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Nom complet *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder="Votre nom" 
+              required
+              minlength="2"
+            >
+            <span class="error-message" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="votre.email@exemple.com" 
+              required
+            >
+            <span class="error-message" id="emailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Sujet *</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              placeholder="Sujet de votre message" 
+              required
+              minlength="3"
+            >
+            <span class="error-message" id="subjectError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              placeholder="Votre message..." 
+              rows="6"
+              required
+              minlength="10"
+            ></textarea>
+            <span class="error-message" id="messageError"></span>
+          </div>
+
+          <button type="submit" class="submit-btn">Envoyer le message</button>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+      </section>
+
+      <section class="contact-info-section" style="margin-top: 50px;">
+        <h3 class="section-title">💬 Autres moyens de contact</h3>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <h4>📧 Email</h4>
+            <p><a href="mailto:benjamin.lemoine@ynov.com">benjamin.lemoine@ynov.com</a></p>
+          </div>
+          <div class="contact-method">
+            <h4>📱 Téléphone</h4>
+            <p><a href="tel:+33629578144">06 29 57 81 44</a></p>
+          </div>
+          <div class="contact-method">
+            <h4>🔗 LinkedIn</h4>
+            <p><a href="https://www.linkedin.com/in/benjamin-lemoine-ynov" target="_blank" rel="noopener noreferrer">benjamin-lemoine-ynov</a></p>
+          </div>
+          <div class="contact-method">
+            <h4>📍 Localisation</h4>
+            <p>Nantes, France</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/contact.js"></script>
+</body>
+</html>
