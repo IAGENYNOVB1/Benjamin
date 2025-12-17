@@ -20,13 +20,14 @@
 
 | Icône | Fonctionnalité | Description |
 |-------|---|---|
-| 🗂️ | **Navigation Multi-Pages** | Accueil, Emplois, Projets, Loisirs |
+| 🗂️ | **Navigation Multi-Pages** | Accueil, Emplois, Projets, Loisirs, **Contact** |
 | ⚡ | **Animations Fluides** | Fade-in au scroll des cartes |
 | 📱 | **Responsive Design** | Parfait sur mobile, tablette, desktop |
 | 🎨 | **Dégradés Modernes** | Bleu → Noir → Blanc 🎨 |
 | 🔗 | **Redirection Smart** | `/` → Page d'accueil automatiquement |
 | 📌 | **Header Sticky** | Navigation toujours visible 📌 |
 | ⚙️ | **Performance** | Chargement < 100ms ⚡ |
+| 📧 | **Formulaire Contact** | Validation en temps réel + envoi simulé |
 
 ---
 
@@ -70,7 +71,8 @@ cv-site/
     ├── 🏠 menu.html           # Accueil (Contact • Compétences • Langues)
     ├── 💼 emplois.html         # Formations & Expériences
     ├── 🎯 projets.html         # Projets réalisés
-    └── 🎮 loisirs.html         # Loisirs & Intérêts
+    ├── 🎮 loisirs.html         # Loisirs & Intérêts
+    └── 📧 contact.html         # Formulaire de contact
 ```
 
 ---
@@ -98,6 +100,13 @@ Tous vos projets avec descriptions
 ### 🎮 Loisirs
 ```
 Activités et passions personnelles
+```
+
+### 📧 Contact
+```
+📬 Formulaire de contact avec validation en temps réel
+📞 Email, Téléphone, LinkedIn, Localisation
+✅ Réponse simulée dans 24h
 ```
 
 ---
@@ -337,5 +346,56 @@ README.md : doc claire avec structure du projet, palette couleurs, instructions 
 
 Serve.sh : bash, tue port 8000 puis python3 -m http.server 8000 (c'est la commande a taper pour lancer le serveur en local host sinon juste aller sur l'hébergeur).
 ```
+
+---
+
+### 📧 PROMPT 6 - PAGE CONTACT & FORMULAIRE
+
+```
+Ajoute une nouvelle page Contact (pages/contact.html) avec :
+- Formulaire de contact avec champs : Nom, Email, Sujet, Message
+- Validation en temps réel avec messages d'erreur/succès
+- Bouton Envoyer avec feedback utilisateur
+- Section "Autres moyens de contact" : Email, Téléphone, LinkedIn, Localisation
+- Responsive design identique au reste du site
+- JavaScript pour valider les champs et simuler l'envoi
+
+Ajoute le lien Contact à la navigation de toutes les pages.
+```
+
+---
+
+## 🏆 Atelier Fil Conducteur - Challenge CV Gamifié
+
+Ce projet suit la charte **"Atelier Fil Conducteur"** - un challenge progressif sur 3 jours pour créer un **Site CV Personnel Gamifié**.
+
+### 📋 Objectifs Complétés
+
+✅ **Structure de base**
+- ✅ Page HTML personnelle avec sections (À propos, Compétences, Projets, Contact)
+- ✅ CSS moderne avec thème professionnel
+- ✅ Prompts documentés pour régénération complète
+
+✅ **Interactivité**
+- ✅ Formulaire de contact fonctionnel avec validation
+- ✅ Navigation fluide avec animations
+- ✅ IntersectionObserver pour animations au scroll
+
+🔄 **Fonctionnalités en développement**
+- 🔄 Carrousel de projets avec filtrage par catégorie
+- 🔄 Mode sombre/clair (toggle)
+- 🔄 Compteur de visites (localStorage)
+- 🔄 Gamification (badges, achievements)
+
+### 📋 Objectifs À Implémenter
+
+📌 **Optimisation et Personnalisation**
+- Amélioration design selon préférences
+- Compression des images et minification
+- Tests multi-navigateurs
+- Documentation complète (ce README)
+
+📌 **Contrainte du Défi**
+- ✅ **Documentation de tous les prompts utilisés** (voir section PROMPTS ci-dessus)
 
 ---
