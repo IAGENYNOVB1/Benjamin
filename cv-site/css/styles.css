@@ -20,11 +20,10 @@
 
 /* Thème sombre */
 body.dark-mode {
-  --theme-bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1a2e 100%);
-  --theme-bg-secondary: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(25, 35, 71, 0.85) 100%);
+  --theme-bg-primary: linear-gradient(135deg, #1a1a2e 0%, #2d2d4d 50%, #1f1f3d 100%);
+  --theme-bg-secondary: linear-gradient(135deg, rgba(60, 60, 90, 0.95) 0%, rgba(50, 50, 80, 0.85) 100%);
   --theme-text-primary: #e2e8f0;
   --theme-text-secondary: #cbd5e1;
-  --blue-dark: #ffffff;
   color-scheme: dark;
 }
 
