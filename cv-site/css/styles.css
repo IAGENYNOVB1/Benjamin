@@ -11,19 +11,18 @@
   --gray-medium: #6b7280;
   --text-dark: #1f2937;
   
-  /* Thème clair (défaut) */
   --theme-bg-primary: linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 50%, #ddd6fe 100%);
   --theme-bg-secondary: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
   --theme-text-primary: #1f2937;
   --theme-text-secondary: #6b7280;
 }
 
-/* Thème sombre */
 body.dark-mode {
   --theme-bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1a2e 100%);
   --theme-bg-secondary: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(25, 35, 71, 0.85) 100%);
-  --theme-text-primary: #ffffff;
-  --theme-text-secondary: #e0e0e0;
+  --theme-text-primary: #0a2463;
+  --theme-text-secondary: #0a2463;
+  --blue-dark: #ffffff;
   color-scheme: dark;
 }
 
